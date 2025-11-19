@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace UnitTestingExercise
 {
     public class Calculator
@@ -9,8 +10,7 @@ namespace UnitTestingExercise
         // and add your reference to the UnitTestingExercise project
 
 
-
-        // Step 2: Create an Add method that accepts 3 integers, adds those integers, and returns an integer
+        // Step 2: Create an Add method that accepts 3 integers, adds those integers, and returns an integer.
         //For Example:
         public int Add(int num1, int num2, int num3)
         {
@@ -24,6 +24,10 @@ namespace UnitTestingExercise
         // Step 4: 
         // Create a Subtract method that accepts 2 integers
         // Keep track of which number is getting passed as minuend and subtrahend
+        public int Subtract(int minuend, int subtrahend)
+        {
+            return minuend - subtrahend;
+        }
 
 
         // Step 5: Navigate to the UnitTests.cs file and complete the SubtractTest unit test method
@@ -31,6 +35,10 @@ namespace UnitTestingExercise
 
         // Step 6: 
         // Create a Multiply method that passes 2 integers
+        public int Multiply(int firstFactor, int secondFactor)
+        {
+            return firstFactor * secondFactor;
+        }
 
 
         // Step 7: Navigate to the UnitTests.cs file and complete the MultiplyTest unit test method 
@@ -38,6 +46,15 @@ namespace UnitTestingExercise
 
         // Step 8: 
         // Create a Divide method that passes 2 integers
+        public decimal Divide(int dividend, int divisor)
+        {
+            // The fraction's decimal form will repeat (never terminate)
+            // if the prime factorization of the divisor contains a prime that is/ contains primes that are: not equal to two and not equal to five.
+            // I searched & there is no built-in C# method that rounds by detecting a repeating pattern.
+            // That's why I coded such a method!
+            decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
+            return answer;
+        }
 
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 
 
