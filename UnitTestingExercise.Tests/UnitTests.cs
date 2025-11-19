@@ -74,6 +74,13 @@ namespace UnitTestingExercise.Tests
         [InlineData(11, 7, 1.571428)]
         [InlineData(7, 5, 1.4)]
         [InlineData(5, 3, 1.6)]
+        [InlineData(3, 2, 1.5)]
+        [InlineData(0, -2, 0)]
+        [InlineData(2, -3, -0.6)]
+        [InlineData(-3, 5, -0.6)]
+        [InlineData(-5, -7, 0.714285)]
+        [InlineData(7, -11, -0.63)]
+        [InlineData(-11, 13, -0.846153)]
         public void DivideTest(int dividend, int divisor, decimal expected)
         {
             //Arrange
@@ -84,6 +91,22 @@ namespace UnitTestingExercise.Tests
 
             //Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void NegativeDivisorShouldThrowDivideByZeroException()
+        {
+            // Arrange
+            Calculator calculator = new Calculator();
+            Random randomGenerator = new Random();
+            int dividend = randomGenerator.Next();
+            int divisor = 0;
+
+            // Act
+            Action actual = () => calculator.Divide(dividend, divisor);
+
+            // Assert
+            Assert.Throws<DivideByZeroException>(actual);
         }
     }
 }

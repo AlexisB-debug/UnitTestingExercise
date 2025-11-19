@@ -49,11 +49,21 @@ namespace UnitTestingExercise
         public decimal Divide(int dividend, int divisor)
         {
             // The fraction's decimal form will repeat (never terminate)
-            // if the prime factorization of the divisor contains a prime that is/ contains primes that are: not equal to two and not equal to five.
+            // if the divisor is a multiple of a prime != 2 or is a multiple of a prime != 5
             // I searched & there is no built-in C# method that rounds by detecting a repeating pattern.
             // That's why I coded such a method!
-            decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
-            return answer;
+
+            if (divisor == 0)
+            {
+                // The user might not notice that I controlled for the case: dividend == 0 in my FrozenDecimal method.
+                // That's why I coded the (not necessary) If-Else
+                throw new DivideByZeroException();
+            }
+            else
+            {
+                decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
+                return answer;
+            }
         }
 
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 
