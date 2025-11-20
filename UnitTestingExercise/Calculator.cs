@@ -53,17 +53,10 @@ namespace UnitTestingExercise
             // I searched & there is no built-in C# method that rounds by detecting a repeating pattern.
             // That's why I coded such a method!
 
-            if (divisor == 0)
-            {
-                // The user might not notice that I controlled for the case: dividend == 0 in my FrozenDecimal method.
-                // That's why I coded the (not necessary) If-Else
-                throw new DivideByZeroException();
-            }
-            else
-            {
-                decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
-                return answer;
-            }
+            // I controlled for the case: divisor == 0 in my FrozenDecimal method;
+            // Making an if (divisor == 0){throw new DivideByZeroException();}else{return FrozenFractals.FrozenDecimal(dividend, divisor);} not necessary.
+            decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
+            return answer;
         }
 
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 
