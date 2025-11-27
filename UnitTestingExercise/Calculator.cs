@@ -12,9 +12,10 @@ namespace UnitTestingExercise
 
         // Step 2: Create an Add method that accepts 3 integers, adds those integers, and returns an integer
         //For Example:
-        public int Add(int num1, int num2, int num3)
+        public int Add(int firstAddend, int secondAddend, int thirdAddend)
         {
-            return num1 + num2 + num3;
+            int sum = firstAddend + secondAddend + thirdAddend;
+            return sum;
         }
 
 
@@ -24,6 +25,11 @@ namespace UnitTestingExercise
         // Step 4: 
         // Create a Subtract method that accepts 2 integers
         // Keep track of which number is getting passed as minuend and subtrahend
+        public int Subtract(int minuend, int subtrahend)
+        {
+            int difference = minuend - subtrahend;
+            return difference;
+        }
 
 
         // Step 5: Navigate to the UnitTests.cs file and complete the SubtractTest unit test method
@@ -31,6 +37,11 @@ namespace UnitTestingExercise
 
         // Step 6: 
         // Create a Multiply method that passes 2 integers
+        public int Multiply(int firstFactor, int secondFactor)
+        {
+            int product = firstFactor * secondFactor;
+            return product;
+        }
 
 
         // Step 7: Navigate to the UnitTests.cs file and complete the MultiplyTest unit test method 
@@ -38,6 +49,20 @@ namespace UnitTestingExercise
 
         // Step 8: 
         // Create a Divide method that passes 2 integers
+        public (int Quotient, int Remainder) Divide(int dividend, int divisor)
+        {
+            try
+            {
+                int quotient = dividend / divisor;
+                // the remainder = dividend - (divisor * quotient)
+                int remainder = dividend % divisor;
+                return (quotient, remainder);
+            }
+            catch (DivideByZeroException)
+            {
+                throw new DivideByZeroException();
+            }
+        }
 
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 
 
