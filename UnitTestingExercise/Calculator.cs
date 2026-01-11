@@ -49,19 +49,10 @@ namespace UnitTestingExercise
 
         // Step 8: 
         // Create a Divide method that passes 2 integers
-        public (int Quotient, int Remainder) Divide(int dividend, int divisor)
+        public decimal Divide(int dividend, int divisor)
         {
-            try
-            {
-                int quotient = dividend / divisor;
-                // the remainder = dividend - (divisor * quotient)
-                int remainder = dividend % divisor;
-                return (quotient, remainder);
-            }
-            catch (DivideByZeroException)
-            {
-                throw new DivideByZeroException();
-            }
+            decimal answer = FrozenFractals.FrozenDecimal(dividend, divisor);
+            return answer;
         }
 
         // Step 9: Navigate to the UnitTests.cs file and complete the DivideTest unit test method 

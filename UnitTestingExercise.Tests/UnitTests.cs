@@ -76,35 +76,32 @@ namespace UnitTestingExercise.Tests
         }
 
         [Theory]
-        [InlineData(17, 3, 5, 2)]
-        [InlineData(17, 13, 1, 4)]//Add test data <-------
-        [InlineData(13, 11, 1, 2)]
-        [InlineData(11, 7, 1, 4)]
-        [InlineData(7, 5, 1, 2)]
-        [InlineData(5, 3, 1, 2)]
-        [InlineData(3, 2, 1, 1)]
-        [InlineData(-3, 17, 0, -3)]
-        [InlineData(0, -2, 0, 0)]
-        [InlineData(2, -3, 0, 2)]
-        [InlineData(-3, 5, 0, -3)]
-        [InlineData(-5, -7, 0, -5)]
-        [InlineData(7, -11, 0, 7)]
-        [InlineData(-11, 13, 0, -11)]
-        [InlineData(-13, -17, 0, -13)]
-        [InlineData(-17, 3, -5, -2)]
-        [InlineData(17, -3, -5, 2)]
-        [InlineData(-17, -3, 5, -2)]
-        public void DivideTest(int dividend, int divisor, int expectedQuotient, int expectedRemainder)
+        [InlineData(17, 3, 5.6)]
+        [InlineData(17, 13, 1.307692)]//Add test data <-------
+        [InlineData(13, 11, 1.18)]
+        [InlineData(11, 7, 1.571428)]
+        [InlineData(7, 5, 1.4)]
+        [InlineData(5, 3, 1.6)]
+        [InlineData(3, 2, 1.5)]
+        [InlineData(0, -2, 0)]
+        [InlineData(2, -3, -0.6)]
+        [InlineData(-3, 5, -0.6)]
+        [InlineData(-5, -7, 0.714285)]
+        [InlineData(7, -11, -0.63)]
+        [InlineData(-11, 13, -0.846153)]
+        [InlineData(-19, 3, -6.3)]
+        [InlineData(13, -5, -2.6)]
+        [InlineData(-11, -7, 1.571428)]
+        public void DivideTest(int dividend, int divisor, decimal expected)
         {
             //Arrange
             Calculator calculator = new Calculator();
 
             //Act
-            (int actualQuotient, int actualRemainder) = calculator.Divide(dividend, divisor);
+            decimal actual = calculator.Divide(dividend, divisor);
 
             //Assert
-            Assert.Equal(expectedQuotient, actualQuotient);
-            Assert.Equal(expectedRemainder, actualRemainder);
+            Assert.Equal(expected, actual);
 
         }
 
